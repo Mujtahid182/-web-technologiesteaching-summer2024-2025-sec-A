@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User ID and Picture</title>
+ 
+</head>
+<body>
+  <form onsubmit="return validateUserPic()" enctype="multipart/form-data">
+    User ID: <input type="text" id="userid"><br>
+    Picture: <input type="file" id="picture"><br>
+    <input type="submit" value="Submit">
+  </form>
+ 
+  <script>
+    function validateUserPic() {
+      const userId = document.getElementById("userid").value;
+      const picture = document.getElementById("picture").value;
+ 
+      if (userId === "" || isNaN(userId) || parseInt(userId) <= 0) {
+        alert("User ID must be a positive number");
+        return false;
+      }
+ 
+      if (picture === "") {
+        alert("Picture must be uploaded");
+        return false;
+      }
+ 
+      return true;
+    }
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>From3</title>
+</head>
+
+<body>
+    <form action="abc.html" method="post" onsubmit="return genderCheck()">
+        <table>
+            <tr>
+                <fieldset>
+                    <legend>Gender</legend>
+                    <input type="radio" id="male" name="gen">
+                    <label for="gender">Male</label>
+                    <input type="radio" id="female" name="gen">
+                    <label for="gender">Female</label>
+                    <input type="radio" id="other" name="gen">
+                    <label for="gender">Other</label>
+                </fieldset>
+                <p id="genderErr"></p>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function genderCheck() {
+            let male = document.getElementById('male');
+            let female = document.getElementById('female');
+            let other = document.getElementById('other');
+            let genderErr = document.getElementById("genderErr");
+            let selectedGender = '';
+
+            if (!male.checked && !female.checked && !other.checked) {
+                genderErr.innerHTML = "Please select a gender";
+                genderErr.style.color = 'red';
+                return false;
+            } else {
+                genderErr.innerHTML = "";
+                if (male.checked) selectedGender = "Male";
+                else if (female.checked) selectedGender = "Female";
+                else if (other.checked) selectedGender = "Other";
+                alert("Selected Gender: " + selectedGender);
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email page</title>
+</head>
+<body>
+    <form action="" onsubmit="return emailCheck()">
+        <table>
+            <tr>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="email" type="email">
+                    <p id="emailErr"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function emailCheck() {
+            let email = document.getElementById('email').value.trim();
+            let emailErr = document.getElementById("emailErr");
+            if (email == "") {
+                emailErr.innerHTML = "email cannot be empty";
+                emailErr.style.color = 'red';
+                return false;
+            } else {
+                emailErr.innerHTML = "";
+                alert("Submitted email: " + email);
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>
